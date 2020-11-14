@@ -1,4 +1,6 @@
-node_modules/
-marks.json
+/node_modules/
+/marks.json
 src/test.*
-build/test.*
+/build
+/.vscode
+/.codelines
