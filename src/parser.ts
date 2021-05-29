@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import {Obj, ObjType, Vertex, VertexNormal, TextureCoordinate, Face} from './obj';
+import { Obj, ObjType, Vertex, VertexNormal, TextureCoordinate, Face } from './obj';
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
     return value !== null && value !== undefined;
@@ -13,11 +13,11 @@ export class Parser {
             input: fileStream,
             crlfDelay: Infinity
         });
-        const obj: Obj = {vertices: [], normals: [], textureCoordinate: [], faces: []};
+        const obj: Obj = { vertices: [], normals: [], textureCoordinate: [], faces: [] };
         for await (const line of lines) {
             const parsedLine = this.parseObjLine(line);
             if (parsedLine) {
-                switch(parsedLine.type) {
+                switch (parsedLine.type) {
                     case ObjType.Vertex:
                         obj.vertices.push(parsedLine.data as Vertex);
                         break;
@@ -45,28 +45,28 @@ export class Parser {
             const type = ObjType.Vertex;
             const vertex = Parser.parseObjVertex(parts);
             if (vertex) {
-                return {type, data: vertex};
+                return { type, data: vertex };
             }
-        } 
+        }
         if (sign === 'vn') {
             const type = ObjType.TextureCoordinate;
             const normal = Parser.parseObjNormal(parts);
             if (normal) {
-                return {type, data: normal};
+                return { type, data: normal };
             }
         }
         if (sign === 'vt') {
             const type = ObjType.VertexNormal;
             const coordinate = Parser.parseObjCoordinate(parts);
             if (coordinate) {
-                return {type, data: coordinate};
-            }      
+                return { type, data: coordinate };
+            }
         }
         if (sign === 'f') {
             const type = ObjType.Face;
             const face = Parser.parseObjFace(parts);
             if (face) {
-                return {type, data: face};
+                return { type, data: face };
             }
         }
     }
@@ -109,8 +109,8 @@ export class Parser {
             const coordinates = [as.shift(), bs.shift(), cs.shift()].filter(notEmpty).map(p => +p);
             const normals = [as.shift(), bs.shift(), cs.shift()].filter(notEmpty).map(p => +p);
             return {
-                vertices, 
-                coordinates: coordinates.length === 3 ? coordinates : undefined, 
+                vertices,
+                coordinates: coordinates.length === 3 ? coordinates : undefined,
                 normals: normals.length === 3 ? normals : undefined,
             };
         }
@@ -126,7 +126,7 @@ export class Parser {
                 x: +x,
                 y: +y,
                 z: +z,
-                w: w ? +w : 1 
+                w: w ? +w : 1
             }
         }
     }

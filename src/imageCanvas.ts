@@ -1,6 +1,6 @@
-import * as jimp from 'jimp';
-import * as path from 'path';
-import {Color} from './color';
+import jimp from 'jimp';
+import path from 'path';
+import { Color } from './color';
 
 export class ImageCanvas {
     private jImage: jimp;
@@ -10,7 +10,7 @@ export class ImageCanvas {
 
     public setPixel(x: number, y: number, color: Color) {
         if (x <= this.jImage.getWidth() && y <= this.jImage.getHeight()) {
-            const hex = jimp.rgbaToInt(color.r, color.g, color.b, 255, () => {});
+            const hex = jimp.rgbaToInt(color.r, color.g, color.b, 255, () => { });
             const flippedY = this.jImage.getHeight() - y;
             this.jImage.setPixelColor(hex, x, flippedY);
         }

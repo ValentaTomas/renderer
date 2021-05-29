@@ -1,9 +1,9 @@
-import {Parser} from './parser';
-import {Renderer} from './renderer';
+import { Parser } from './parser';
+import { Renderer } from './renderer';
 import { Model } from './model';
 
 export class Tyr {
-    public async parse(paths: {objPath: string}) {
+    public async parse(paths: { objPath: string }) {
         const obj = await Parser.parseObj(paths.objPath);
         return { obj };
     }

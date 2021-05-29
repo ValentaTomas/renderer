@@ -1,18 +1,14 @@
-import {Tyr} from './tyr';
+import { Tyr } from './tyr';
+import path from 'path';
 
-async function start(args: string[]) {
-    const objPath = args.shift();
-    if (!objPath) {
-        return;
-    }
+async function main() {
+    const objPath = path.join('data', 'head.obj');
     const tyr = new Tyr();
     const model = await tyr.parse({ objPath });
     const images = tyr.render(model);
-    const directory = new Date().toISOString();
-    Object.entries(images).forEach(
-        async ([key, value]) => await value.save(`rendered_images/${directory}/${key}.png`)
-    );
+    Object
+        .entries(images)
+        .forEach(([key, value]) => value.save(path.join('rendered-images', `${key}.png`)));
 }
 
-const args = process.argv.slice(2);
-start(args);
+if (require.main === module) main();

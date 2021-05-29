@@ -1,6 +1,7 @@
 /node_modules/
 /marks.json
 src/test.*
-/build
+build
 /.vscode
 /.codelines
+lib

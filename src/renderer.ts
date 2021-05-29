@@ -18,16 +18,16 @@ const red: Color = {
 export class Renderer {
     public static lines(lineRenderer: (start: Position2D, end: Position2D, image: ImageCanvas, color: Color) => void) {
         const image = new ImageCanvas(100, 100);
-        lineRenderer({x: 13, y: 20}, {x: 80, y: 40}, image, white);
-        lineRenderer({x: 20, y: 13}, {x: 40, y: 80}, image, red);
-        lineRenderer({x: 80, y: 40}, {x: 13, y: 20}, image, red);
+        lineRenderer({ x: 13, y: 20 }, { x: 80, y: 40 }, image, white);
+        lineRenderer({ x: 20, y: 13 }, { x: 40, y: 80 }, image, red);
+        lineRenderer({ x: 80, y: 40 }, { x: 13, y: 20 }, image, red);
         return image;
     }
 
     public static line1(start: Position2D, end: Position2D, image: ImageCanvas, color: Color) {
         for (let t = 0; t < 1; t += 0.1) {
-            const x = start.x + ( end.x - start.x ) * t;
-            const y = start.y + ( end.y - start.y ) * t;
+            const x = start.x + (end.x - start.x) * t;
+            const y = start.y + (end.y - start.y) * t;
             image.setPixel(x, y, color);
         }
     }
@@ -35,7 +35,7 @@ export class Renderer {
     public static line2(start: Position2D, end: Position2D, image: ImageCanvas, color: Color) {
         for (let x = start.x; x <= end.x; x++) {
             const t = (x - start.x) / (end.x - start.x);
-            const y = start.y * (1 - t) + end.y * t; 
+            const y = start.y * (1 - t) + end.y * t;
             image.setPixel(x, y, color);
         }
     }
@@ -77,7 +77,7 @@ export class Renderer {
         const dx = end.x - start.x;
         const dy = end.y - start.y;
         const derror = Math.abs(dy / dx);
-        let error = 0; 
+        let error = 0;
         let y = start.y;
 
         for (let x = start.x; x <= end.x; x++) {
@@ -109,7 +109,7 @@ export class Renderer {
         const dx = end.x - start.x;
         const dy = end.y - start.y;
         const derror2 = Math.abs(dy) * 2;
-        let error2 = 0; 
+        let error2 = 0;
         let y = start.y;
 
         for (let x = start.x; x <= end.x; x++) {
