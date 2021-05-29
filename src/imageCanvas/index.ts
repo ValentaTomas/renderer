@@ -2,7 +2,7 @@ import jimp from 'jimp';
 import path from 'path';
 import { Color } from './color';
 
-export class ImageCanvas {
+class ImageCanvas {
     private jImage: jimp;
     public constructor(width: number, height: number) {
         this.jImage = new jimp(width, height, 'black');
@@ -20,3 +20,5 @@ export class ImageCanvas {
         return this.jImage.writeAsync(path.join(process.cwd(), savePath))
     }
 }
+
+export default ImageCanvas;

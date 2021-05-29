@@ -1,7 +1,7 @@
-import { Obj } from './obj';
-import { ImageCanvas } from './imageCanvas';
-import { Position2D } from './position';
-import { Color } from './color';
+import { Obj } from '../parser/obj';
+import ImageCanvas from '../imageCanvas';
+import { Position2D } from './position2D';
+import { Color } from '../imageCanvas/color';
 
 const white: Color = {
     r: 255,
@@ -15,7 +15,7 @@ const red: Color = {
     b: 0
 }
 
-export class Renderer {
+class Renderer {
     public static lines(lineRenderer: (start: Position2D, end: Position2D, image: ImageCanvas, color: Color) => void) {
         const image = new ImageCanvas(100, 100);
         lineRenderer({ x: 13, y: 20 }, { x: 80, y: 40 }, image, white);
@@ -147,3 +147,5 @@ export class Renderer {
         return image;
     }
 }
+
+export default Renderer;

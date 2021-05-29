@@ -1,12 +1,17 @@
 import * as fs from 'fs';
 import * as readline from 'readline';
-import { Obj, ObjType, Vertex, VertexNormal, TextureCoordinate, Face } from './obj';
+import { Obj } from './obj';
+import { Face } from './face';
+import { VertexNormal } from './vertexNormal';
+import { TextureCoordinate } from './textureCoordinate';
+import { Vertex } from './vertex';
+import { ObjType } from './objType';
 
 function notEmpty<TValue>(value: TValue | null | undefined): value is TValue {
     return value !== null && value !== undefined;
 }
 
-export class Parser {
+class Parser {
     public static async parseObj(path: string) {
         const fileStream = fs.createReadStream(path);
         const lines = readline.createInterface({
@@ -131,3 +136,5 @@ export class Parser {
         }
     }
 }
+
+export default Parser;
