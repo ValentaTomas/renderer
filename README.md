@@ -1,4 +1,4 @@
-# TYR - TypeScript Renderer
+# Renderer
 
 https://github.com/ssloy/tinyrenderer
 
