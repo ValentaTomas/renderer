@@ -1,6 +1,12 @@
 # Renderer
 Based on the tutorial https://github.com/ssloy/tinyrenderer
 
+Readings:
+- https://ciechanow.ski/
+- https://thebookofshaders.com/
+- https://github.com/ssloy/tinyrenderer
+- https://bleuje.com/
+
 ## Setup
 ```sh
 npm install
