@@ -6,6 +6,8 @@ Readings:
 - https://thebookofshaders.com/
 - https://github.com/ssloy/tinyrenderer
 - https://bleuje.com/
+- https://www.amazon.com/Generative-Art-Practical-Guide-Processing/dp/1935182625
+- https://natureofcode.com/
 
 ## Setup
 ```sh
